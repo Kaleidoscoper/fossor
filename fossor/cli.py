@@ -60,6 +60,12 @@ def set_end_time(ctx, param, value):
     return get_timestamp(value)
 
 
+def set_log_since_time(ctx, param, value):
+    if 'log_since' in ctx.params and ctx.params['log_since'] is not None:
+        return ctx.params['log_since']
+    return None
+
+
 def set_relative_start_time(ctx, param, value):
     '''Overrides start time relative to number of {value} hours'''
     hours = value
@@ -91,6 +97,7 @@ def fossor_cli_flags(f):
     f = click.option('-t', '--time-out', 'timeout', show_default=True, default=600, help='Default timeout for plugins.')(f)
     f = click.option('--end-time', callback=set_end_time, help='Plugins may optionally implement and use this. Defaults to now.')(f)
     f = click.option('--start-time', callback=set_start_time, help='Plugins may optionally implement and use this.')(f)
+    f = click.option('--log-since', callback=set_log_since_time, help='LogCheck Plugins would use this.')(f)
     f = click.option('-r', '--report', type=click.STRING, show_default=True, default='StdOut', help='Report Plugin to run.')(f)
     f = click.option('--hours', type=click.INT, default=24, show_default=True, callback=set_relative_start_time,
                      help='Sets start-time to X hours ago. Plugins may optionally implement and use this.')(f)

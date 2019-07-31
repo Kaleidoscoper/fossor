@@ -64,7 +64,7 @@ class MemUsage(Check):
                         newline = newline + human_time + line + "\n"
 
                 else:
-                    return '\n'.join([line for line in out.split('\n') in line])
+                    return '\n'.join([line for line in out.split('\n')])
 
         return newline
 

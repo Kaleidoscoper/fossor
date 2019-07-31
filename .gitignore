@@ -104,3 +104,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# IntelliJ IDEA specific
+**/.idea/
+**/target/
+**/*.iml

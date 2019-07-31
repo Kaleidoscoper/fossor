@@ -3,7 +3,7 @@
 
 from unittest.mock import patch
 
-from fossor.checks.diskusage import DiskUsage
+from fossor.checks.BasicEnvirCheck.diskusage import DiskUsage
 
 
 @patch('fossor.plugin.Plugin.shell_call')

@@ -3,12 +3,12 @@
 
 from fossor.checks.check import Check
 
-
+# 检查磁盘的插件
 class DiskUsage(Check):
     """DiskUsage ensures that disk utilization percentage for any mounted partitions
     remains under PERCENTAGE_ALERT ."""
 
-    PERCENTAGE_ALERT = 98
+    PERCENTAGE_ALERT = 85
 
     def run(self, variables):
 
