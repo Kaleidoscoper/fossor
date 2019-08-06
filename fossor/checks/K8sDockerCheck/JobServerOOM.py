@@ -7,7 +7,7 @@ class JobServerOOM(Check):
         out, err, return_code = self.shell_call('sudo kubectl get pods')
         log_since = variables.get('log_since', None)
         pods = out.splitlines()[1:]
-        jobServerLine = [pod for pod in pods if "spark-jobserver-deployment" in pod and "Running" in pod][0]
+        jobServerLine = [pod for pod in pods if "spark-jobserver" in pod and "Running" in pod][0]
         jobServerPod = jobServerLine.split()[0]
 
         if (log_since):
