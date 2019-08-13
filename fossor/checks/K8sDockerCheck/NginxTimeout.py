@@ -19,7 +19,7 @@ class NginxTimeout(Check):
         matchResult = re.match(pattern, ''.join(out))
         if matchResult != None:
             return "可能是已知问题, Nginx响应1分钟超时，可将nginx配置中的timeout时间调长,可参考Task-T6533"
-        return "可能有其他问题"
+        return "没有Nginx 接口Timeout问题"
 
 
 if __name__ == '__main__':

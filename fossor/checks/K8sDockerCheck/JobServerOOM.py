@@ -19,7 +19,7 @@ class JobServerOOM(Check):
         matchResult = re.match(pattern, ''.join(out))
         if matchResult != None:
             return "Jobserver 发生OOM, 请检查内存配置是否足够"
-        return "可能有其他问题"
+        return "没有Jobserver内存OOM问题"
 
 
 if __name__ == '__main__':
