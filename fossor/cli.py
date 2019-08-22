@@ -63,7 +63,7 @@ def set_end_time(ctx, param, value):
 def set_log_since_time(ctx, param, value):
     if 'log_since' in ctx.params and ctx.params['log_since'] is not None:
         return ctx.params['log_since']
-    return None
+    return value
 
 
 def set_relative_start_time(ctx, param, value):

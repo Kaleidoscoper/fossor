@@ -12,6 +12,8 @@ class NginxTimeout(Check):
 
         if (log_since):
             out, err, return_code =  self.shell_call('kubectl logs --since=%s %s -c nginx' % (log_since, webPod))
+            if (err):
+                return err
         else:
             out, err, return_code = self.shell_call('kubectl logs --since=24h %s -c nginx' % (webPod))
 

@@ -12,6 +12,8 @@ class JobServerOOM(Check):
 
         if (log_since):
             out, err, return_code =  self.shell_call('kubectl logs --since=%s %s' % (log_since, jobServerPod))
+            if (err):
+                return err
         else:
             out, err, return_code = self.shell_call('kubectl logs --since=24h %s' % (jobServerPod))
 
