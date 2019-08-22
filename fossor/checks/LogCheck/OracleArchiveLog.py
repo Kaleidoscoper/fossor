@@ -28,5 +28,5 @@ class OracleArchiveLog(Check):
 
 
 if __name__ == '__main__':
-    c = ParquetNotFound()
+    c = OracleArchiveLog()
     print(c.run({}))

@@ -13,3 +13,8 @@ class SparkCoreDump(Check):
             if "G" in out:
                 return "Spark Worker产生CoreDump数据，磁盘空间即将耗尽，请尽快处理"
         return "没有Spark CoreDump问题"
+
+
+if __name__ == '__main__':
+    c = SparkCoreDump()
+    print(c.run({}))
