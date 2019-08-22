@@ -18,8 +18,6 @@ class KubeSystemReboot(Check):
         startedTimeStr = re.match(pattern, ''.join(out)).group(4).strip()
         startedTime = datetime.datetime.strptime(startedTimeStr, "%a, %d %b %Y %H:%M:%S")
         nowDay = datetime.datetime.today()
-        print(startedTime)
-        print(nowDay)
         return (nowDay-startedTime).days < 1
 
 
