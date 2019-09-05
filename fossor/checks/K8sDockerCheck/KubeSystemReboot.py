@@ -7,7 +7,7 @@ class KubeSystemReboot(Check):
         out, err, return_code = self.shell_call('kubectl get pods --all-namespaces')
         pods = out.splitlines()[1:]
         kubeSystemPods = [pod.split()[1] for pod in pods if "kube-system" in pod and "Running" in pod]
-        pattern = re.compile(r'(.*?)State:(.*?)Running(.*?)Started:(.*?)Last', re.S | re.I)
+        pattern = re.compile(r'(.*?)State:(.*?)Running(.*?)Started:(.*?)\n', re.S | re.I)
         for kubeSystemPod in kubeSystemPods:
             if self.checkIfRebootInLast24Hours(kubeSystemPod, pattern):
                 return '过去24h内，kube-system组件: %s 发生过重启，可能是kubelet异常，请检查' % (kubeSystemPod)
